@@ -1,0 +1,53 @@
+const ObjectID = require('mongodb').ObjectID;
+
+module.exports = function (app, db) {
+    app.get('/users/:id', (req, res) => {
+        const id = req.params.id;
+        const details = { '_id': new ObjectID(id) };
+        db.collection('users').findOne(details, (err, item) => {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                res.send(item);
+            }
+        });
+    });
+
+    app.post('/users', (req, res) => {
+        const user = { username: req.body.username, password: req.body.password };
+        db.collection('users').insertOne(user, (err, result) => {
+            if (err) {
+                res.send({ 'error': 'An error has occurred' });
+            } else {
+                res.send(result.ops[0]);
+            }
+        });
+    });
+
+    app.delete('/users/:id', (req, res) => {
+        const id = req.params.id;
+        const details = { '_id': new ObjectID(id) };
+        db.collection('users').removeOne(details, (err, item) => {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                res.send('Note ' + id + ' deleted!');
+            }
+        });
+    });
+
+    app.put('/users/:id', (req, res) => {
+        const id = req.params.id;
+        const details = { '_id': new ObjectID(id) };
+        const note = { text: req.body.body, title: req.body.title };
+        db.collection('users').updateOne(details, note, (err, result) => {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                res.send(note);
+            }
+        });
+    });
+
+
+};
