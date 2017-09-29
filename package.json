@@ -24,8 +24,11 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "express": "^4.15.5",
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
     "mongodb": "^2.2.31",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2"
