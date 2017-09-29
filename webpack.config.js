@@ -4,7 +4,8 @@ module.exports = {
     entry: __dirname + '/app/index.js',
     output: {
         path: __dirname + '/build',
-        filename: 'app.bundle.js'
+        filename: 'app.bundle.js',
+        publicPath: '/'
     },
     module: {
         loaders: [
@@ -17,6 +18,9 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [new HtmlWebpackPlugin({
         template: __dirname + '/app/index.html',
