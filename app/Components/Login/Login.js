@@ -1,18 +1,26 @@
 import React from 'react';
-
-const buttonStyle = {
-    margin: '10px 10px 10px 0'
-};
+import { Link, Redirect } from 'react-router-dom';
+import validateCredentials from './LoginValidation';
+import history from '../../history.js';
 
 export default class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+        };
+        this.onEmailChange = this.onEmailChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
+    }
+
     render() {
         return (
-
             <div className="body">
                 <div className="section"></div>
                 <main>
                     <center>
-                       {/* <img className="responsive-img" style="width: 250px;" src="https://i.imgur.com/ax0NCsK.gif" /> */}
                         <div className="section"></div>
 
                         <h5 className="indigo-text">Please, login into your account</h5>
@@ -20,8 +28,6 @@ export default class Login extends React.Component {
 
                         <div className="container">
                             <div className="z-depth-1 grey lighten-4 row" style={{display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE"}}>
-
-                                <form className="col s12" method="post">
                                     <div className='row'>
                                         <div className='col s12'>
                                         </div>
@@ -29,14 +35,30 @@ export default class Login extends React.Component {
 
                                     <div className='row'>
                                         <div className='input-field col s12'>
-                                            <input className='validate' type='email' name='email' id='email' />
+                                            <input
+                                                className='validate'
+                                                onChange={this.onEmailChange}
+                                                value = {this.state.email}
+                                                ref='email'
+                                                type='email'
+                                                name='email'
+                                                id='email'
+                                            />
                                             <label htmlFor='email'>Enter your email</label>
                                         </div>
                                     </div>
 
                                     <div className='row'>
                                         <div className='input-field col s12'>
-                                            <input className='validate' type='password' name='password' id='password' />
+                                            <input
+                                                className='validate'
+                                                onChange={this.onPasswordChange}
+                                                value = {this.state.password}
+                                                ref='password'
+                                                type='password'
+                                                name='password'
+                                                id='password'
+                                            />
                                             <label htmlFor='password'>Enter your password</label>
                                         </div>
                                         <label style={{float: "right"}}>
@@ -47,13 +69,12 @@ export default class Login extends React.Component {
                                     <br />
                                     <center>
                                         <div className='row'>
-                                            <button type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>Login</button>
+                                            <button onClick={this.handleSubmit} type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>Login</button>
                                         </div>
                                     </center>
-                                </form>
                             </div>
                         </div>
-                        <a href="#!">Create account</a>
+                        <Link to='/signup'>Create account</Link>
                     </center>
 
                     <div className="section"></div>
@@ -61,5 +82,35 @@ export default class Login extends React.Component {
                 </main>
             </div>
         );
+    }
+
+    onEmailChange(e) {
+        this.setState({email: e.target.value});
+    }
+
+    onPasswordChange(e) {
+        this.setState({password: e.target.value});
+    }
+
+    handleSubmit() {
+        console.log(this.state.email, this.state.password);
+        validateCredentials(this.state.email, this.state.password).then(users => {
+            console.log(users);
+            if(users[this.state.email.toString()].password === this.state.password){
+                console.log("user is validated");
+                history.push('/');
+
+            } else {
+                console.log("user is not validated");
+                history.push('/login');
+            }
+        }, () => {
+            this.setState({
+                email: '',
+                password: ''
+            })
+        });
+
+
     }
 }

@@ -13,8 +13,18 @@ module.exports = function (app, db) {
         });
     });
 
+    app.get('/users', (req, res) => {
+        db.collection('users').find({}).toArray(function(err, result) {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                res.send(result);
+            }
+        });
+    });
+
     app.post('/users', (req, res) => {
-        const user = { username: req.body.username, password: req.body.password };
+        const user = { email: req.body.email, password: req.body.password };
         db.collection('users').insertOne(user, (err, result) => {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });
@@ -31,7 +41,7 @@ module.exports = function (app, db) {
             if (err) {
                 res.send({'error':'An error has occurred'});
             } else {
-                res.send('Note ' + id + ' deleted!');
+                res.send('User ' + id + ' deleted!');
             }
         });
     });
@@ -39,12 +49,12 @@ module.exports = function (app, db) {
     app.put('/users/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
-        const note = { text: req.body.body, title: req.body.title };
-        db.collection('users').updateOne(details, note, (err, result) => {
+        const user = { email: req.body.email, password: req.body.password };
+        db.collection('users').updateOne(details, user, (err, result) => {
             if (err) {
                 res.send({'error':'An error has occurred'});
             } else {
-                res.send(note);
+                res.send(user);
             }
         });
     });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const buttonStyle = {
     margin: '10px 10px 10px 0'
@@ -11,7 +12,6 @@ export default class Signup extends React.Component {
                 <div className="section"></div>
                 <main>
                     <center>
-                       {/* <img className="responsive-img" style="width: 250px;" src="https://i.imgur.com/ax0NCsK.gif" /> */}
                         <div className="section"></div>
 
                         <h5 className="indigo-text">Create a new account</h5>
@@ -45,10 +45,19 @@ export default class Signup extends React.Component {
                                             <input className='validate' type='password' name='password' id='password' />
                                             <label htmlFor='password'>Enter your password</label>
                                         </div>
+                                    </div>
+
+                                    <div className='row'>
+                                        <div className='input-field col s12'>
+                                            <input className='validate' type='password' name='password' id='confirmpassword' />
+                                            <label htmlFor='confirmpassword'>Confirm password</label>
+                                        </div>
                                         <label style={{float: "right"}}>
-                                            <a className='pink-text' href='#!'><b>Forgot Password?</b></a>
+                                            <a className='pink-text' href='#!'><b>Passwords should match</b></a>
                                         </label>
                                     </div>
+
+
 
                                     <br />
                                     <center>
@@ -61,7 +70,7 @@ export default class Signup extends React.Component {
                             </div>
                         </div>
                         <p>Already have an account? &nbsp;
-                          <a href="#!">LOGIN</a>
+                          <Link to='login'>LOGIN</Link>
                         </p>
                         
                     </center>
