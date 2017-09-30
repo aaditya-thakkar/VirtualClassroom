@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import validateCredentials from './LoginValidation';
+import validateCredentials from './Loginvalidation';
 import history from '../../history.js';
 
 export default class Login extends React.Component {

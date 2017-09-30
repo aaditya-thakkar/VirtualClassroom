@@ -1,21 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navigation from './navigation';
+import Introduction from './introduction';
+import Courses from './courses';
+
 
 const buttonStyle = {
     margin: '25px 10px 10px 0'
 };
 
-const logoStyle = {
-    height: 100,
-    width: 100,
-    margin: '10px 10px 10px 50px'
-};
-
 export default class HomePage extends React.Component {
     render() {
         return (
-            <div className="row">
-                <div className={"col-md-2 inline-div"}>
+            <div>
+                <Navigation />
+                <div>
+                    <Introduction />
+                </div>
+                <br /><br /><br /><br /><br /><br />
+                <div>
+                    <Courses />
+                </div>
+            </div>
+        );
+    }
+}
+
+{/*}  <div className={"col-md-2 inline-div"}>
                     <img src="http://ias.daiict.ac.in/2017/assets/logos/daiictlogo.jpeg" style={logoStyle} />
                 </div>
                 <div className="col-md-6 inline-div">
@@ -39,8 +50,4 @@ export default class HomePage extends React.Component {
                         className="btn btn-default waves-effect indigo"
                         style={buttonStyle}
                     >Sign Up</button></Link>
-                </div>
-            </div>
-        );
-    }
-}
+                </div>*/}

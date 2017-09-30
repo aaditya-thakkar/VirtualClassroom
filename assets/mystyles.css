@@ -1,0 +1,51 @@
+.home-img{
+    background-image: url("../app/pages/HomePage/course-images/home.jpg");
+    /*height: 100px;
+    width: 100px;*/
+    max-width: 100%;
+   height: 467px;
+    width: 1301px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.card-align{
+    padding-left: 125px;
+    padding-right: 125px;
+}
+
+.card .card-content {
+    padding: 6px;
+    border-radius: 0 0 0px 0px;
+    height: 60px;
+}
+
+.card {
+    height: 222px;
+}
+
+.card .card-image img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 223px;
+    height: 222px;
+}
+
+.card .card-image .card-title {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding-right: 7px;
+    padding-top: 0px;
+    padding-bottom: 90px;
+    padding-left: 34px;
+}
