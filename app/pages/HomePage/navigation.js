@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const logoStyle = {
     height: 100,
@@ -14,9 +15,9 @@ export default class Navigation extends React.Component {
                     <div className="nav-wrapper">
                         <img src="/app/pages/HomePage/course-images/logo.png" style={logoStyle} className="brand-logo" />
                         <ul className="right hide-on-med-and-down">
-                            <li><a href="sass.html">About</a></li>
-                            <li><a href="badges.html">Login</a></li>
-                            <li><a href="collapsible.html">SignUp</a></li>
+                            <li><Link to='/'>About</Link></li>
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><Link to='/signup'>SignUp</Link></li>
                         </ul>
                     </div>
                 </nav>
