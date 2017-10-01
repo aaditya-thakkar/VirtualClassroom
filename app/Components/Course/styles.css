@@ -1,0 +1,10 @@
+.abc {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-top : 1000px;
+  }
+
+ .b1{
+    align-content: center;
+ }
