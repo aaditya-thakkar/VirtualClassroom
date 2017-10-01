@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
                                     <input className="search-input"></input>
                                 </div>
                                 
-                                <button class="material-icons">search</button>
+                                <button className="material-icons">search</button>
 
                             </div>
                         </div>

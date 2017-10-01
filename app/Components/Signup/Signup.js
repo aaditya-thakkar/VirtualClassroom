@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import history from '../../history.js';
 import addUser from './SignupHandler';
-
 export default class Signup extends React.Component {
     constructor(props) {
         super(props);
