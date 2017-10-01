@@ -5,7 +5,7 @@ export default class Introduction extends React.Component {
         return(
             <div>
                 <div className="home-img">
-                    <p className="text-over"> dsaddsdffffffffffffffffffffffff</p>
+                    <div className="text-over"> dsaddsdffffffffffffffffffffffff</div>
                 </div>
                  
             </div>

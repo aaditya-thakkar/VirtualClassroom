@@ -8,8 +8,8 @@ export default class Course extends React.Component {
                 <Container>
                     <Row>
                         <Col sm={{ size: 4, offset: 2 }}>
-                            <Jumbotron>
-                                <img src='/app/pages/HomePage/course-images/data_structure.jpg'></img>
+                            <Jumbotron className="burrah">
+                                <img className="course-img" src='/app/pages/HomePage/course-images/data_structure.jpg'></img>
                                 <h3 className="display-3">Data Structures</h3>
                                 <p className="small">Instructor: Hussein Al Rubaye</p>
                                 <hr className="my-2" />
