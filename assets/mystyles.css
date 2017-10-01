@@ -55,6 +55,23 @@ input[type=email]:focus:not([readonly])  {
 
 }
 
+.video-jumbo {
+    background: #eee;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 0.2rem;
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.video-jumbo:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+
+
 .active {
     border-bottom-color: #4683ea;
 }
@@ -144,9 +161,17 @@ a:active {
     text-decoration: unset;
 }
 
+.mt80 {
+    margin-top: 80px;
+}
+
+.mt70 {
+    margin-top: 70px;
+}
+
 .card-align{
-    padding-left: 125px;
-    padding-right: 125px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .card .card-content {
@@ -182,6 +207,17 @@ a:active {
     padding-left: 56px;
 }
 
+.video-heading {
+    line-height: 1em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    text-align: left;
+    margin-left: 1px;
+}
+
 .video-detail {
     margin: 20px 20px 20px 10px;
 }
@@ -198,6 +234,7 @@ a:active {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 223px;
-    height: 100px;
+    width: 100%;
+    height: 90px;
+    margin: 12px 5px 0px 0;
 }

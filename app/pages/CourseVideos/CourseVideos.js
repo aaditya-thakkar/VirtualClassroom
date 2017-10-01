@@ -15,17 +15,14 @@ export default class CourseVideos extends React.Component {
     render() {
         return (
             <div>
-                <Container>
-                    <Row>
-                        <Col xs="2" />
-                        <Col xs="5">
+                <div className="row">                        
+                        <div className="col s9 mt80">
                             <VideoPlayer index={this.state.index} />
-                        </Col>
-                        <Col>
+                        </div>
+                        <div className="col s3 mt70">
                             <VideoList handleClick={this.handleClick} />
-                        </Col>
-                    </Row>
-                </Container>
+                        </div>
+                </div>
             </div>
         );
     }

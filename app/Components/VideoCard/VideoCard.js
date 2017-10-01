@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Jumbotron, Row, Col } from 'reactstrap';
 
 // const avatarStyle = {
 //     backgroundImage: `url(${Background})`
@@ -13,23 +13,23 @@ export default class VideoCard extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>
+            <Jumbotron className="video-jumbo" onClick={this.handleClick}>
                 <div className="video-card">
-                    <Row>
-                        <Col>
+                    <div className="row">
+                        <div className="col s6">
                             <div className="video-card-image">
                                 <img src={this.props.course.poster_image} />
                             </div>
-                        </Col>
-                        <Col>
+                        </div>
+                        <div className="col s6">
                             <div className='video-detail'>
-                                <h6>{this.props.course.name}</h6>
-                                <p>{this.props.course.duration}</p>
+                                <h6 className="video-heading">{this.props.course.name}</h6>
+                                <p style={{textAlign: 'left'}}>{this.props.course.duration}</p>
                             </div>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </div>
-            </button>
+            </Jumbotron>
         );
     }
 
