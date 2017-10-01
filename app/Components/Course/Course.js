@@ -1,5 +1,6 @@
 import React from 'react';
 import { Jumbotron, Button, Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class Course extends React.Component {
     render() {
@@ -15,7 +16,7 @@ export default class Course extends React.Component {
                                 <hr className="my-2" />
 
                                 <p className="lead">
-                                    <Button className="indigo large b1">Enroll</Button>
+                                    <Link to='/coursevideo'><Button className="indigo large b1">Enroll</Button></Link>
                                 </p>
                             </Jumbotron>
                         </Col>
