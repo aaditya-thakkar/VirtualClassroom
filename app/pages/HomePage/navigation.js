@@ -14,20 +14,22 @@ export default class Navigation extends React.Component {
                 <nav>
                     <div className="nav-wrapper">
                         <div className="row">
-                        <div className="col s1">
-                            <img src="/app/pages/HomePage/course-images/logo.png" style={logoStyle} className="brand-logo" />
-                        </div>
-                        <div className="col s2 nav-text">
-                            Say my name :P!
-                        </div>
+                            <div>
+                                <Link to='/'>
+                                    <div className="col s1">
+                                        <img src="/app/pages/HomePage/course-images/logo.png" style={logoStyle} className="brand-logo" />
+                                    </div>
+                                    <div className="col s2 nav-text">
+                                        DistEdu
+                                    </div>
+                                </Link>
+                            </div>
                         <div className="col s5">
                             <div className="row">
                                 <div className="col s10">
                                     <input className="search-input"></input>
                                 </div>
-                                
                                 <button className="material-icons">search</button>
-
                             </div>
                         </div>
                         <div className="col s4">
