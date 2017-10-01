@@ -14,7 +14,6 @@ export default class Main extends React.Component {
                     <Route path='/login' component={Login} />
                     <Route path='/signup' component={Signup} />
                     <Route path='/course' component={Course} />
-
                 </Switch>
             </main>
         )
