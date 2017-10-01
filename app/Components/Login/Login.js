@@ -23,7 +23,7 @@ export default class Login extends React.Component {
                     <center>
                         <div className="section"></div>
 
-                        <h5 className="indigo-text">Please, login into your account</h5>
+                        <h5>Please, login into your account</h5>
                         <div className="section"></div>
 
                         <div className="container">

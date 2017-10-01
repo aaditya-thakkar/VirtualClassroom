@@ -27,7 +27,7 @@ export default class Signup extends React.Component {
                     <center>
                         <div className="section"></div>
 
-                        <h5 className="indigo-text">Create a new account</h5>
+                        <h5>Create a new account</h5>
                         <div className="section"></div>
 
                         <div className="container">
@@ -109,7 +109,7 @@ export default class Signup extends React.Component {
                             </div>
                         </div>
                         <p>Already have an account? &nbsp;
-                          <Link to='login'>LOGIN</Link>
+                          <Link to='login' className="login-btn">LOGIN</Link>
                         </p>
                         
                     </center>
