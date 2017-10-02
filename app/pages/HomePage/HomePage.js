@@ -2,11 +2,6 @@ import React from 'react';
 import Introduction from './introduction';
 import Courses from './courses';
 
-
-const buttonStyle = {
-    margin: '25px 10px 10px 0'
-};
-
 export default class HomePage extends React.Component {
     render() {
         return (
@@ -14,7 +9,11 @@ export default class HomePage extends React.Component {
                 <div>
                     <Introduction />
                 </div>
-                <br /><br /><br /><br /><br /><br />
+                <br /><br />
+                <center><h4>Our Offerings</h4></center>
+                <br />
+                <div className='divider' />
+                <br />
                 <div>
                     <Courses />
                 </div>
