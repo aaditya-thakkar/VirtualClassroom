@@ -19,6 +19,7 @@ export default class Signup extends React.Component {
     }
 
     render() {
+        if (localStorage.getItem('AUTH_USER')) history.goBack();
         return (
             <div className="body">
                 <div className="section"></div>
