@@ -8,7 +8,7 @@ export default class Introduction extends React.Component {
                 <div className="home-img">
                     <div className="text-over">
                         <h2>Learn From The Expert.</h2>
-                        <Link to='/signup'><a className="waves-effect waves-light btn">Get Started</a></Link>
+                        <Link to='/signup' className="waves-effect waves-light btn">Get Started</Link>
                     </div>
 
                 </div>
