@@ -17,7 +17,7 @@ const navButtons = () => (<div className="col s4">
 
 const navButtonsWithAuth = (username, handleLogout) => (<div className="col s4">
     <ul className="right hide-on-med-and-down">
-        <li><Link to='/'>About</Link></li>
+        <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
         <li>Hi, {username}</li>
         <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
     </ul>
