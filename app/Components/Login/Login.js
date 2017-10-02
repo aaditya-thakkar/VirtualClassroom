@@ -98,7 +98,8 @@ export default class Login extends React.Component {
             console.log(users);
             if(users[this.state.email.toString()].password === this.state.password){
                 console.log("user is validated");
-                history.push('/');
+                localStorage.setItem('AUTH_USER', this.state.email.toString());
+                history.goBack();
 
             } else {
                 console.log("user is not validated");

@@ -100,6 +100,12 @@ h5 {
 }
 
 
+h4 {
+    color: #4683ea;
+    font-weight: bold;
+    margin: 25px 0 0 0;
+}
+
 .home-img{
     background-image: url("../app/pages/HomePage/course-images/home.jpg");
     /*height: 100px;

@@ -142,7 +142,8 @@ export default class Signup extends React.Component {
             addUser(this.state.email, this.state.password).then(response => {
                 console.log('new user added');
                 console.log(response);
-                history.push('/');
+                localStorage.setItem('AUTH_USER', this.state.email.toString());
+                history.goBack();
             }, () =>{
                 this.setState({
                     email: '',

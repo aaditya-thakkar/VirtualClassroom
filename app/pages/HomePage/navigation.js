@@ -7,8 +7,32 @@ const logoStyle = {
     margin: '10px 10px 10px 50px'
 };
 
+const navButtons = () => (<div className="col s4">
+                        <ul className="right hide-on-med-and-down">
+                            <li><Link to='/'>About</Link></li>
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><Link to='/signup'>SignUp</Link></li>
+                        </ul>
+                    </div>);
+
+const navButtonsWithAuth = (username, handleLogout) => (<div className="col s4">
+    <ul className="right hide-on-med-and-down">
+        <li><Link to='/'>About</Link></li>
+        <li>Hi, {username}</li>
+        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+    </ul>
+</div>);
+
 export default class Navigation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
+    }
+
     render(){
+        console.log('local', localStorage.getItem('AUTH_USER'));
+        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
         return(
             <div className="nav-fixed">
                 <nav>
@@ -32,17 +56,20 @@ export default class Navigation extends React.Component {
                                 <button className="material-icons">search</button>
                             </div>
                         </div>
-                        <div className="col s4">
-                            <ul className="right hide-on-med-and-down">
-                                <li><Link to='/'>About</Link></li>
-                                <li><Link to='/login'>Login</Link></li>
-                                <li><Link to='/signup'>SignUp</Link></li>
-                            </ul>
+                        <div>
+                            {this.navLinks}
                         </div>
                         </div>
                     </div>
                 </nav>
             </div>
         );
+    }
+
+    handleLogout() {
+        localStorage.removeItem('AUTH_USER');
+        this.setState({
+            navLinks: navButtons()
+        })
     }
 }
