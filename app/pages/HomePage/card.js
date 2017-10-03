@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 
 export default class Card extends React.Component {
     render() {
+        const path_obj = this.props.noCourseLink ? { pathname: '/tutorform'} : { pathname: '/course', query: { cid: this.props.course.cid} }
         return (
             <div>
-                <Link to={ { pathname: '/course', query: { cid: this.props.course.cid} } }>
+                <Link to={ path_obj }>
                     <div className="card">
                         <div className="card-image">
                             <img src={this.props.course.image} />

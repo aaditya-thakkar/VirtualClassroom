@@ -1,6 +1,7 @@
 import React from 'react';
 import Introduction from './introduction';
 import Courses from './courses';
+import Dashboard from './dashboard';
 
 export default class HomePage extends React.Component {
     render() {
@@ -8,11 +9,9 @@ export default class HomePage extends React.Component {
             return(
                 <div>
                 
-                <br /><br />
-                <center><h2>Tutor Dashboard</h2></center>
-                <br />
-                <div className='divider' />
-                <br />
+                <div>
+                    <Dashboard />
+                    </div>
                 
             </div>
             );
