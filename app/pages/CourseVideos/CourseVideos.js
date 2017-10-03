@@ -34,13 +34,13 @@ export default class CourseVideos extends React.Component {
     }
 
     render() {
-        console.log("reached", this.props.location.query.cid);
+        const cid = _.get(this.props, 'location.query.cid', '');
         return (
             <div>
                 <div className="row">                        
                         <div className="col s9 mt80">
                             <VideoPlayer index={this.state.index} />
-                            <center><button onClick={_.partial(handleLiveClassroom, this.props.location.query.cid)} className="btn waves-effect waves-light button-live">Enter a live classroom</button></center>
+                            <center><button onClick={_.partial(handleLiveClassroom, cid)} className="btn waves-effect waves-light button-live">Enter a live classroom</button></center>
                         </div>
                         <div className="col s3 mt70">
                             <VideoList handleClick={this.handleClick} />
