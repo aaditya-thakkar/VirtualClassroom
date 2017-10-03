@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import history from '../../history.js';
+import AddTutor from './TutorformHandler';
 
 export default class Tutorform extends React.Component {
     constructor(props) {
@@ -130,21 +131,21 @@ export default class Tutorform extends React.Component {
     handleSubmit() {
         console.log(this.state.age, this.state.country, this.state.degree, this.state.aoi);
         // change the account from student account to tutor account .
+
         
-        // if (this.state.country === this.state.aoi) {
-        //     addUser(this.state.age, this.state.country).then(response => {
-        //         console.log('new user added');
-        //         console.log(response);
-        //         localStorage.setItem('AUTH_USER', this.state.age.toString());
-        //         history.goBack();
-        //     }, () =>{
-        //         this.setState({
-        //             age: '',
-        //             country: '',
-        //             aoi: '',
-        //             degree: ''
-        //         })
-        //     });
-        // }
+        AddTutor(localStorage.getItem('AUTH_USER')).then(response => {
+            console.log('new user added');
+            console.log(response);
+            localStorage.setItem('IS_TUTOR',"true");
+            // link to dashboard
+        }, () =>{
+            this.setState({
+                age: '',
+                country: '',
+                degree: '',
+                aoi: ''
+            })
+        });
+        
     }
 }

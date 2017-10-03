@@ -49,7 +49,7 @@ module.exports = function (app, db) {
     app.put('/users/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
-        const user = { email: req.body.email, password: req.body.password };
+        const user = { email: req.body.email, password: req.body.password, istutor: req.body.istutor };
         db.collection('users').updateOne(details, user, (err, result) => {
             if (err) {
                 res.send({'error':'An error has occurred'});
