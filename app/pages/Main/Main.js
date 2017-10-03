@@ -4,6 +4,7 @@ import Login from '../../Components/Login';
 import Signup from '../../Components/Signup';
 import HomePage from '../../pages/HomePage';
 import CourseVideos from '../../pages/CourseVideos';
+import TutorDashboard from '../../pages/TutorDashboard';
 import Course from '../../Components/Course';
 import Tutorform from '../../Components/Tutorform';
 

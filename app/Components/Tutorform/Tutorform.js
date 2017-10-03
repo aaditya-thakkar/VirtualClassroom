@@ -137,7 +137,7 @@ export default class Tutorform extends React.Component {
             console.log('new user added');
             console.log(response);
             localStorage.setItem('IS_TUTOR',"true");
-            // link to dashboard
+            history.goBack();
         }, () =>{
             this.setState({
                 age: '',
