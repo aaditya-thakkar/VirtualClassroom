@@ -6,7 +6,7 @@ export default class VideoList extends React.Component {
     render() {
         return (
             <div className="column card-align">
-                {COURSE_VIDEOS.DATA_STRUCTURES.mediaList.map((item,i) => {
+                {COURSE_VIDEOS[this.props.cid.toString()].mediaList.map((item,i) => {
                     return (<div key={i}>
                             <VideoCard handleClick={this.props.handleClick} course={item} />
                         </div>

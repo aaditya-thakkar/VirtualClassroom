@@ -4,7 +4,7 @@ import COURSE_VIDEOS from '../VideoList/course_videos.js';
 
 export default class VideoPlayer extends React.Component {
     render() {
-        const source = COURSE_VIDEOS.DATA_STRUCTURES.mediaList[this.props.index].url;
+        const source = COURSE_VIDEOS[this.props.cid.toString()].mediaList[this.props.index].url;
         return (
             <Player src={source}>
                 <BigPlayButton position="center" />
