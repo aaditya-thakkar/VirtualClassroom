@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const logoStyle = {
     height: 50,
@@ -34,7 +35,11 @@ const navButtonsTutor = (username, handleLogout) => (<div className="col s4">
 export default class Navigation extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            searchValue: ''
+        };
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleSearchValue = this.handleSearchValue.bind(this);
         this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
     }
 
@@ -59,9 +64,9 @@ export default class Navigation extends React.Component {
                             <div className="col s5">
                                 <div className="row">
                                     <div className="col s10">
-                                        <input className="search-input"></input>
+                                        <SearchBar handleSearchValue={this.handleSearchValue} />
                                     </div>
-                                    <button className="material-icons">search</button>
+                                    <Link to={ { pathname: '/course', query: { cid: this.state.searchValue} } } className="material-icons">search</Link>
                                 </div>
                             </div>
                             <div>
@@ -79,6 +84,12 @@ export default class Navigation extends React.Component {
         localStorage.getItem('IS_TUTOR') && localStorage.removeItem('IS_TUTOR');
         this.setState({
             navLinks: navButtons()
+        })
+    }
+
+    handleSearchValue(cid) {
+        this.setState({
+            searchValue: cid
         })
     }
 }
