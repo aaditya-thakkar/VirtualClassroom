@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default class Course extends React.Component {
     render() {
+        console.log(this.props.location.query.cid);
         const link = localStorage.getItem('AUTH_USER') ? '/coursevideo' : '/login';
         return (
             <div className="abc" >
@@ -17,7 +18,7 @@ export default class Course extends React.Component {
                                 <hr className="my-2" />
 
                                 <p className="lead">
-                                    <Link to={link}><Button className="indigo large b1">Enroll</Button></Link>
+                                    <Link to={{ pathname: link, query: { cid: this.props.location.query.cid } }}><Button className="indigo large b1">Enroll</Button></Link>
                                 </p>
                             </Jumbotron>
                         </Col>

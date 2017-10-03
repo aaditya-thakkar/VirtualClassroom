@@ -9,7 +9,7 @@ export default class Card extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/course'>
+                <Link to={ { pathname: '/course', query: { cid: this.props.course.cid} } }>
                     <div className="card">
                         <div className="card-image">
                             <img src={this.props.course.image} />
