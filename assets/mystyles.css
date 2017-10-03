@@ -106,6 +106,10 @@ h4 {
     margin: 25px 0 0 0;
 }
 
+.button-live {
+    margin-top: 50px;
+}
+
 .home-img{
     background-image: url("../app/pages/HomePage/course-images/home.jpg");
     /*height: 100px;
