@@ -28,51 +28,51 @@ export default class Login extends React.Component {
                         <div className="section"></div>
 
                         <div className="container">
-                            <div className="z-depth-1 grey lighten-4 row" style={{display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE"}}>
-                                    <div className='row'>
-                                        <div className='col s12'>
-                                        </div>
+                            <div className="z-depth-1 grey lighten-4 row" style={{ display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE" }}>
+                                <div className='row'>
+                                    <div className='col s12'>
                                     </div>
+                                </div>
 
-                                    <div className='row'>
-                                        <div className='input-field col s12'>
-                                            <input
-                                                className='validate'
-                                                onChange={this.onEmailChange}
-                                                value = {this.state.email}
-                                                ref='email'
-                                                type='email'
-                                                name='email'
-                                                id='email'
-                                            />
-                                            <label htmlFor='email'>Enter your email</label>
-                                        </div>
+                                <div className='row'>
+                                    <div className='input-field col s12'>
+                                        <input
+                                            className='validate'
+                                            onChange={this.onEmailChange}
+                                            value={this.state.email}
+                                            ref='email'
+                                            type='email'
+                                            name='email'
+                                            id='email'
+                                        />
+                                        <label htmlFor='email'>Enter your email</label>
                                     </div>
+                                </div>
 
-                                    <div className='row'>
-                                        <div className='input-field col s12'>
-                                            <input
-                                                className='validate'
-                                                onChange={this.onPasswordChange}
-                                                value = {this.state.password}
-                                                ref='password'
-                                                type='password'
-                                                name='password'
-                                                id='password'
-                                            />
-                                            <label htmlFor='password'>Enter your password</label>
-                                        </div>
-                                        <label style={{float: "right"}}>
-                                            <a className='pink-text' href='#!'><b>Forgot Password?</b></a>
-                                        </label>
+                                <div className='row'>
+                                    <div className='input-field col s12'>
+                                        <input
+                                            className='validate'
+                                            onChange={this.onPasswordChange}
+                                            value={this.state.password}
+                                            ref='password'
+                                            type='password'
+                                            name='password'
+                                            id='password'
+                                        />
+                                        <label htmlFor='password'>Enter your password</label>
                                     </div>
+                                    <label style={{ float: "right" }}>
+                                        <a className='pink-text' href='#!'><b>Forgot Password?</b></a>
+                                    </label>
+                                </div>
 
-                                    <br />
-                                    <center>
-                                        <div className='row'>
-                                            <button onClick={this.handleSubmit} type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>Login</button>
-                                        </div>
-                                    </center>
+                                <br />
+                                <center>
+                                    <div className='row'>
+                                        <button onClick={this.handleSubmit} type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>Login</button>
+                                    </div>
+                                </center>
                             </div>
                         </div>
                         <Link to='/signup'>Create account</Link>
@@ -86,20 +86,23 @@ export default class Login extends React.Component {
     }
 
     onEmailChange(e) {
-        this.setState({email: e.target.value});
+        this.setState({ email: e.target.value });
     }
 
     onPasswordChange(e) {
-        this.setState({password: e.target.value});
+        this.setState({ password: e.target.value });
     }
 
     handleSubmit() {
         console.log(this.state.email, this.state.password);
         validateCredentials(this.state.email, this.state.password).then(users => {
             console.log(users);
-            if(users[this.state.email.toString()].password === this.state.password){
+            if (users[this.state.email.toString()].password === this.state.password) {
                 console.log("user is validated");
                 localStorage.setItem('AUTH_USER', this.state.email.toString());
+                if (users[this.state.email.toString()].istutor === "true") {
+                    localStorage.setItem('IS_TUTOR', "true");
+                }
                 history.goBack();
 
             } else {

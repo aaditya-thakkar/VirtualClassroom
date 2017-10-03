@@ -8,16 +8,24 @@ const logoStyle = {
 };
 
 const navButtons = () => (<div className="col s4">
-                        <ul className="right hide-on-med-and-down">
-                            <li><Link to='/'>About</Link></li>
-                            <li><Link to='/login'>Login</Link></li>
-                            <li><Link to='/signup'>SignUp</Link></li>
-                        </ul>
-                    </div>);
+    <ul className="right hide-on-med-and-down">
+        <li><Link to='/'>About</Link></li>
+        <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/signup'>SignUp</Link></li>
+    </ul>
+</div>);
 
 const navButtonsWithAuth = (username, handleLogout) => (<div className="col s4">
     <ul className="right hide-on-med-and-down">
-        <li><Link to='/'>About</Link></li>
+        <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
+        <li>Hi, {username}</li>
+        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+    </ul>
+</div>);
+
+const navButtonsTutor = (username, handleLogout) => (<div className="col s4">
+    <ul className="right hide-on-med-and-down">
+        <li><Link to='/'>About </Link></li>
         <li>Hi, {username}</li>
         <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
     </ul>
@@ -30,10 +38,10 @@ export default class Navigation extends React.Component {
         this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
     }
 
-    render(){
+    render() {
         console.log('local', localStorage.getItem('AUTH_USER'));
-        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
-        return(
+        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : localStorage.getItem('IS_TUTOR') ? navButtonsTutor(localStorage.getItem('AUTH_USER'), this.handleLogout) : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
+        return (
             <div className="nav-fixed">
                 <nav>
                     <div className="nav-wrapper">
@@ -48,17 +56,17 @@ export default class Navigation extends React.Component {
                                     </div>
                                 </Link>
                             </div>
-                        <div className="col s5">
-                            <div className="row">
-                                <div className="col s10">
-                                    <input className="search-input"></input>
+                            <div className="col s5">
+                                <div className="row">
+                                    <div className="col s10">
+                                        <input className="search-input"></input>
+                                    </div>
+                                    <button className="material-icons">search</button>
                                 </div>
-                                <button className="material-icons">search</button>
                             </div>
-                        </div>
-                        <div>
-                            {this.navLinks}
-                        </div>
+                            <div>
+                                {this.navLinks}
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -68,6 +76,7 @@ export default class Navigation extends React.Component {
 
     handleLogout() {
         localStorage.removeItem('AUTH_USER');
+        localStorage.getItem('IS_TUTOR') && localStorage.removeItem('IS_TUTOR');
         this.setState({
             navLinks: navButtons()
         })
