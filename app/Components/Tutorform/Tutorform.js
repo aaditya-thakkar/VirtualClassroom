@@ -28,7 +28,7 @@ export default class Tutorform extends React.Component {
                     <center>
                         <div className="section"></div>
 
-                        <h5>Become a tutor</h5>
+                        <h5>Become a Tutor</h5>
                         <div className="section"></div>
 
                         <div className="container col s12">
@@ -44,7 +44,7 @@ export default class Tutorform extends React.Component {
                                                 name='age'
                                                 id='age'
                                             />
-                                            <label htmlFor='age'>Enter your Age</label>
+                                            <label htmlFor='age'>Enter your age</label>
                                         </div>
                                     </div>
 
@@ -58,7 +58,7 @@ export default class Tutorform extends React.Component {
                                                 name='country'
                                                 id='country'
                                             />
-                                            <label htmlFor='country'>Enter your Country</label>
+                                            <label htmlFor='country'>Enter your country</label>
                                         </div>
                                     </div>
 
@@ -72,7 +72,7 @@ export default class Tutorform extends React.Component {
                                                 name='degree'
                                                 id='degree'
                                             />
-                                            <label htmlFor='degree'>Enter your Degree </label>
+                                            <label htmlFor='degree'>Enter your degree </label>
                                         </div>
                                     </div>
 
