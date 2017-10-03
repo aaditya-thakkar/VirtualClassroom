@@ -68,21 +68,21 @@ export default class Course extends React.Component {
         const link = localStorage.getItem('AUTH_USER') ? '/coursevideo' : '/login';
         return (
             <div className="abc" >
-                <Container>
-                    <Row>
-                        <Col sm={{ size: 4, offset: 2 }}>
+                <div className="row">
+                    
+                        <div className="col s4">
                             <Jumbotron className="burrah">
                                 <img className="course-img" src='/app/pages/HomePage/course-images/data_structure.jpg'></img>
                                 <h3 className="display-3">{this.state.courseName}</h3>
                                 <p className="small">Instructor: {this.state.instructorName}</p>
                                 <hr className="my-2" />
 
-                                <p className="lead">
+                                <p className="lead enroll">
                                     <Link to={{ pathname: link, query: { cid: _.get(this.props, 'location.query.cid', '') } }}><Button className="indigo large b1">Enroll</Button></Link>
                                 </p>
                             </Jumbotron>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        </div>
+                        <div className="col s8">
                             <Jumbotron>
                                 <h4 className="display-3">About this course</h4>
                                 <p className="small">A good algorithm usually comes together with a set of good data structures that allow the algorithm to manipulate the data efficiently. In this course, we consider the common data structures that are used in various computational problems.
@@ -119,10 +119,9 @@ export default class Course extends React.Component {
                                 
                             </Jumbotron>
                             
-                        </Col>
-                    </Row>
-                </Container>
-            </div >
+                        </div>
+                    </div>
+            </div>
         );
     }
 }

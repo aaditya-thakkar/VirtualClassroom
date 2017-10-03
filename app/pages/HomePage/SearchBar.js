@@ -108,6 +108,7 @@ export default class SearchBar extends React.Component {
 
         return (
             <Autosuggest
+                className="auto-suggest"
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}

@@ -16,6 +16,14 @@ input.search-input {
     transition: unset;
 }
 
+.react-autosuggest__input::placeholder {
+    color: white;
+}
+
+.react-autosuggest__input {
+    color: white;
+}
+
 input[type=text]:focus:not([readonly])+label,
 input[type=password]:focus:not([readonly])+label,
 input[type=email]:focus:not([readonly])+label  {
@@ -38,7 +46,8 @@ input[type=email]:focus:not([readonly])  {
 }
 
 .burrah{
-    width: 250px !important;
+    width: 350px !important;
+    margin-left: 75px !important;
 }
 
 .jumbotron {
@@ -47,7 +56,8 @@ input[type=email]:focus:not([readonly])  {
     display: inline-block;
     margin: 1rem;
     position: relative;
-    width: 600px;
+    width: 800px;
+    padding: 5%;
 }
 
 .jumbotron:hover {
@@ -83,6 +93,11 @@ input[type=email]:focus:not([readonly])  {
 .btn {
     background-color: #4683ea !important;
     font-size: 18px;
+}
+
+.enroll {
+    color: white !important;
+    text-align: center;
 }
 
 .btn:hover {
@@ -123,12 +138,19 @@ h4 {
 }
 
 .course-img {
-    width: 100%;
+    width: 85%;
+    margin: 7%;
 }
 
 .abc{
     position: absolute;
     margin-top: 90px;
+}
+
+.text-name {
+    margin: 0 15px 0 15px;
+    font-size: 18px;
+    color: white;
 }
 
 .text-over {
@@ -140,8 +162,13 @@ h4 {
     font-size: 38px;
 }
 
+.waves-effect {
+    color: white !important;
+}
+
 .nav-text {
     font-size: 20px;
+    color: white;
 }
 
 .nav-fixed {
@@ -170,6 +197,12 @@ a:active {
     color: white;
     text-decoration: unset;
 }
+
+.create-acc {
+    color: #039be5 !important;
+}
+
+
 
 .mt80 {
     margin-top: 80px;
@@ -208,13 +241,16 @@ a:active {
 .card .card-image .card-title {
     color: #fff;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: 100%;
-    padding-right: 7px;
-    padding-top: 0px;
-    padding-bottom: 90px;
-    padding-left: 56px;
+    /* padding: 31%; */
+    /* height: inherit; */
+    /* bottom: 0; */
+    /* left: 0; */
+    /* max-width: 100%; */
+    padding-right: 22%;
+    padding-top: 40%;
+    padding-bottom: 30%;
+    /* text-align: center; */
+    padding-left: 25%;
 }
 
 .video-heading {
@@ -302,6 +338,7 @@ a:active {
 
 .react-autosuggest__suggestion {
     cursor: pointer;
+    width: 100%;
     padding: 10px 20px;
 }
 
