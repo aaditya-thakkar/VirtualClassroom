@@ -75,7 +75,7 @@ export default class Login extends React.Component {
                                 </center>
                             </div>
                         </div>
-                        <Link to='/signup'>Create account</Link>
+                        <Link className="create-acc" to='/signup'>Create account</Link>
                     </center>
 
                     <div className="section"></div>
