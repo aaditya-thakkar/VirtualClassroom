@@ -39,11 +39,11 @@ export default class CourseVideos extends React.Component {
             <div>
                 <div className="row">                        
                         <div className="col s9 mt80">
-                            <VideoPlayer index={this.state.index} />
+                            <VideoPlayer cid={cid} index={this.state.index} />
                             <center><button onClick={_.partial(handleLiveClassroom, cid)} className="btn waves-effect waves-light button-live">Enter a live classroom</button></center>
                         </div>
                         <div className="col s3 mt70">
-                            <VideoList handleClick={this.handleClick} />
+                            <VideoList cid={cid} handleClick={this.handleClick} />
                         </div>
                 </div>
             </div>
