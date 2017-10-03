@@ -1,10 +1,45 @@
 import React from 'react';
 import { Jumbotron, Button, Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
+import courses_helper from "../../pages/HomePage/courses_helper";
+import axios from 'axios';
 
 export default class Course extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            courseName: '',
+            instructorName: ''
+        }
+    }
+
+    componentDidMount() {
+        const cid = _.get(this.props, 'location.query.cid', '');
+        courses_helper().then(courses => {
+            const c_obj = _.keyBy(courses, 'cid');
+            const courseName = c_obj[cid].name;
+            const tutorId = c_obj[cid].tutorId;
+            return { courseName: courseName, tutorId: tutorId };
+        }).then(obj => {
+              const tutorId = obj.tutorId;
+              axios.get('http://localhost:8081/users')
+                .then(response => {
+                    console.log(response.data);
+                    const t_obj = _.keyBy(response.data, 'tutorId');
+                    const t_name = t_obj[tutorId].name;
+                    this.setState({
+                        courseName: obj.courseName,
+                        instructorName: t_name
+                    })
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        });
+    }
+
     render() {
-        console.log(this.props.location.query.cid);
         const link = localStorage.getItem('AUTH_USER') ? '/coursevideo' : '/login';
         return (
             <div className="abc" >
@@ -13,12 +48,12 @@ export default class Course extends React.Component {
                         <Col sm={{ size: 4, offset: 2 }}>
                             <Jumbotron className="burrah">
                                 <img className="course-img" src='/app/pages/HomePage/course-images/data_structure.jpg'></img>
-                                <h3 className="display-3">Data Structures</h3>
-                                <p className="small">Instructor: Hussein Al Rubaye</p>
+                                <h3 className="display-3">{this.state.courseName}</h3>
+                                <p className="small">Instructor: {this.state.instructorName}</p>
                                 <hr className="my-2" />
 
                                 <p className="lead">
-                                    <Link to={{ pathname: link, query: { cid: this.props.location.query.cid } }}><Button className="indigo large b1">Enroll</Button></Link>
+                                    <Link to={{ pathname: link, query: { cid: _.get(this.props, 'location.query.cid', '') } }}><Button className="indigo large b1">Enroll</Button></Link>
                                 </p>
                             </Jumbotron>
                         </Col>
