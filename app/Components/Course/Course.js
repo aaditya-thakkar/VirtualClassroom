@@ -39,6 +39,31 @@ export default class Course extends React.Component {
         });
     }
 
+    componentDidUpdate() {
+        const cid = _.get(this.props, 'location.query.cid', '');
+        courses_helper().then(courses => {
+            const c_obj = _.keyBy(courses, 'cid');
+            const courseName = c_obj[cid].name;
+            const tutorId = c_obj[cid].tutorId;
+            return { courseName: courseName, tutorId: tutorId };
+        }).then(obj => {
+            const tutorId = obj.tutorId;
+            axios.get('http://localhost:8081/users')
+                .then(response => {
+                    console.log(response.data);
+                    const t_obj = _.keyBy(response.data, 'tutorId');
+                    const t_name = t_obj[tutorId].name;
+                    this.setState({
+                        courseName: obj.courseName,
+                        instructorName: t_name
+                    })
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        });
+    }
+
     render() {
         const link = localStorage.getItem('AUTH_USER') ? '/coursevideo' : '/login';
         return (
