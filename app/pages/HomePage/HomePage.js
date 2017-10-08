@@ -12,9 +12,7 @@ export default class HomePage extends React.Component {
                 </div>
                 <br /><br />
                 <center><h4>Our Offerings</h4></center>
-                <br />
                 <div className='divider' />
-                <br />
                 <div>
                     <Courses />
                 </div>
