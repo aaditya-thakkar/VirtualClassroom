@@ -1,7 +1,3 @@
-body {
-    font-family: serif;
-}
-
 input.search-input {
     border: none;
     /* border-bottom: 1px solid #9e9e9e; */
@@ -182,7 +178,7 @@ nav {
 }
 
 nav ul a {
-    width: 125px;
+    width: 82px;
     font-size: large;
     text-align: center;
     color: white !important;
@@ -357,4 +353,8 @@ nav {
     margin-left: 43px;
     margin-right: 31px;
     margin-top: 17px;
+}
+
+.brandname {
+    margin-left: 50px !important;
 }
