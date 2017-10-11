@@ -358,3 +358,9 @@ nav {
 .brandname {
     margin-left: 50px !important;
 }
+
+.loader-position {
+    padding-left: 585px;
+    padding-right: 20px;
+    padding-top: 59px;
+}
