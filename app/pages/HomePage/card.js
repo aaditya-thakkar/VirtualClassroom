@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default class Card extends React.Component {
     render() {
-        const path_obj = this.props.noCourseLink ? { pathname: '/tutorform'} : { pathname: '/course', query: { cid: this.props.course.cid} }
+        const path_obj = this.props.link ? { pathname: this.props.link } : { pathname: '/course', query: { cid: this.props.course.cid} }
         return (
             <div>
                 <Link to={ path_obj }>
