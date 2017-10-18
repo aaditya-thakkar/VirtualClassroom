@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './card'
-import course_helper from './courses_helper';
+import Card from '../../pages/HomePage/card';
+import getMyCourses from './getMyCourses';
 
 export default class Courses extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export default class Courses extends React.Component {
     }
 
     componentDidMount() {
-        course_helper().then(courses => {
+        getMyCourses().then(courses => {
             this.setState({
                 courses: courses
             });
@@ -22,8 +22,8 @@ export default class Courses extends React.Component {
         if (Array.isArray(array)) {
             return array.map((item, i) => {
                 return (<div key={i} className="col s3" style={{ paddingLeft: "25px", paddingTop: "20px" }}>
-                    <Card course={{ name: item.name, image: item.image, cid: item.cid }} />
-                </div>
+                        <Card course={{ name: item.name, image: item.image, cid: item.cid }} />
+                    </div>
                 )
             })
         }
@@ -35,10 +35,10 @@ export default class Courses extends React.Component {
                             <div className="circle-clipper left">
                                 <div className="circle"></div>
                             </div><div className="gap-patch">
-                                <div className="circle"></div>
-                            </div><div className="circle-clipper right">
-                                <div className="circle"></div>
-                            </div>
+                            <div className="circle"></div>
+                        </div><div className="circle-clipper right">
+                            <div className="circle"></div>
+                        </div>
                         </div>
                     </div>
                 </div>
