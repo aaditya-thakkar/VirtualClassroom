@@ -82,7 +82,7 @@ module.exports = function (app, db) {
     });
 
     app.post('/courses', (req, res) => {
-        const course = { id: req.body.id, name: req.body.name, liveChannel: req.body.liveChannel, tutorId: req.body.tutorId, image: req.body.image };
+        const course = { cid: req.body.cid, name: req.body.name, liveChannel: req.body.liveChannel, tutorId: req.body.tutorId, image: req.body.image };
         db.collection('courses').insertOne(course, (err, result) => {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });
