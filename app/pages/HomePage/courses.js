@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './card'
 import course_helper from './courses_helper';
-import ReactLoaderQuotes from 'react-loader-quotes';
 
 export default class Courses extends React.Component {
     constructor(props) {

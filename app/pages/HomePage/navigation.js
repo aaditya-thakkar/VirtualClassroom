@@ -5,10 +5,10 @@ import SearchBar from './SearchBar';
 const logoStyle = {
     height: 50,
     width: 50,
-    margin: '10px 10px 10px 10px'
+    margin: '10px 10px 10px 50px'
 };
 
-const navButtons = () => (<div className="col s4" style={{"float" : "right"}}>
+const navButtons = () => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/'>About</Link></li>
         <li><Link to='/login'>Login</Link></li>
@@ -16,7 +16,7 @@ const navButtons = () => (<div className="col s4" style={{"float" : "right"}}>
     </ul>
 </div>);
 
-const navButtonsWithAuth = (username, handleLogout) => (<div className="col s4">
+const navButtonsWithAuth = (username, handleLogout) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
         <li className="text-name">Hi, {username}</li>
@@ -24,7 +24,7 @@ const navButtonsWithAuth = (username, handleLogout) => (<div className="col s4">
     </ul>
 </div>);
 
-const navButtonsTutor = (username, handleLogout) => (<div className="col s4">
+const navButtonsTutor = (username, handleLogout) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li className="text-name">Hi, {username}</li>
@@ -53,15 +53,15 @@ export default class Navigation extends React.Component {
                         <div className="row">
                             <div>
                                 <Link to='/'>
-                                    <div> 
+                                    <div className="col s1">
                                         <img src="/app/pages/HomePage/course-images/logo.png" style={logoStyle} className="brand-logo" />
                                     </div>
-                                    <div className="col s2 nav-text brandname">
+                                    <div className="col s2 nav-text">
                                         DistEdu
                                     </div>
                                 </Link>
                             </div>
-                            <div className="col s5">
+                            <div className="col s4">
                                 <div className="row">
                                     <div className="col s10">
                                         <SearchBar handleSearchValue={this.handleSearchValue} />
