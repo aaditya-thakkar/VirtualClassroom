@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button, Container, Row, Col } from 'reactstrap';
+import { Jumbotron, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import courses_helper from "../../pages/HomePage/courses_helper";
