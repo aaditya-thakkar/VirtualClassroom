@@ -10,7 +10,7 @@ const logoStyle = {
 
 const navButtons = () => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
-        <li><Link to='/'>About</Link></li>
+        <li ><Link to='/about'>About</Link></li>
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/signup'>SignUp</Link></li>
     </ul>
