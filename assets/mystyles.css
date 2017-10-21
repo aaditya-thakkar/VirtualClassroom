@@ -8,10 +8,8 @@ body {
 
 input.search-input {
     border: none;
-    /* border-bottom: 1px solid #9e9e9e; */
     border-radius: 0;
     background: rgba(255,255,255,.16);
-    /* outline: none; */
     height:48px;
     height: 3rem;
     font-size: 18px;
@@ -147,8 +145,6 @@ h4 {
 
 .home-img{
     background-image: url("../app/pages/HomePage/course-images/home.jpg");
-    /*height: 100px;
-    width: 100px;*/
     max-width: 100%;
     height: 467px;
     background-size: cover;
@@ -258,15 +254,8 @@ a:active {
 .card .card-image .card-title {
     color: #fff;
     position: absolute;
-    /* padding: 31%; */
-    /* height: inherit; */
-    /* bottom: 0; */
-    /* left: 0; */
-    /* max-width: 100%; */
-    /*padding-right: 22%;*/
     padding-top: 40%;
     padding-bottom: 30%;
-    /* text-align: center; */
     padding-left: 24%;
 }
 
