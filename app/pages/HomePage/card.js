@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// const avatarStyle = {
-//     backgroundImage: `url(${Background})`
-// };
-
 export default class Card extends React.Component {
     render() {
         const path_obj = this.props.link ? { pathname: this.props.link } : { pathname: '/course', query: { cid: this.props.course.cid} }
