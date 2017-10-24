@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../../pages/HomePage/card';
 import getMyCourses from './getMyCourses';
 
@@ -6,7 +7,7 @@ export default class Courses extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            courses: []
+            courses: ''
         }
     }
 
@@ -48,8 +49,21 @@ export default class Courses extends React.Component {
 
     render() {
         return (
-            <div className="row card-align">
-                {this.renderCourseList(this.state.courses)}
+            <div className="body">
+                <div className="row card-align">
+                    {this.renderCourseList(this.state.courses)}
+                </div>
+                <center>
+                    <div className="fixed-action-btn">
+                        <a className="btn-floating btn-large indigo">
+                            <i className="large material-icons">mode_edit</i>
+                        </a>
+                        <ul>
+                            <li><Link to="/dashboard/addCourseForm" className="btn-floating red"><i className="large material-icons">add</i></Link></li>
+                            <li><Link to="/dashboard/addCourseForm" className="btn-floating yellow darken-1"><i className="large material-icons">delete</i></Link></li>
+                        </ul>
+                    </div>
+                </center>
             </div>
         );
     }

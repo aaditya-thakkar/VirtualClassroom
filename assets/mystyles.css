@@ -6,6 +6,10 @@ body {
     font-family: Arial;
 }
 
+.space {
+    margin-right: 32px;
+}
+
 input.search-input {
     border: none;
     border-radius: 0;
@@ -370,7 +374,7 @@ nav {
 }
 
 .loader-position {
-    padding-left: 585px;
+    padding-left: 655px;
     padding-right: 20px;
     padding-top: 59px;
 }
