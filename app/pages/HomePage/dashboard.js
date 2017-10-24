@@ -10,8 +10,6 @@ export default class Dashboard extends React.Component {
                         <h2>Instructor Dashboard</h2>
                     </div>
                 </div>
-                <center><h4>My Courses</h4></center>
-                <div className='divider' />
                 <DashboardItems />
             </div>
         );
