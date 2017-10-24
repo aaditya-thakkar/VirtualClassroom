@@ -55,7 +55,7 @@ export default class Courses extends React.Component {
                 <div className="row card-align">
                     {this.renderCourseList(this.state.courses)}
                 </div>
-                <center>
+
                     <div className="fixed-action-btn">
                         <a className="btn-floating btn-large indigo">
                             <i className="large material-icons">mode_edit</i>
@@ -65,7 +65,7 @@ export default class Courses extends React.Component {
                             <li><Link to="/dashboard/addCourseForm" className="btn-floating yellow darken-1"><i className="large material-icons">delete</i></Link></li>
                         </ul>
                     </div>
-                </center>
+
             </div>
         );
     }

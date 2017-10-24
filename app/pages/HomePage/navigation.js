@@ -8,6 +8,10 @@ const logoStyle = {
     margin: '10px 10px 10px 50px'
 };
 
+const iconstyle = {
+    margin: '15px'
+};
+
 const navButtons = () => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li ><Link to='/about'>About</Link></li>
@@ -66,7 +70,7 @@ export default class Navigation extends React.Component {
                                     <div className="col s10">
                                         <SearchBar handleSearchValue={this.handleSearchValue} />
                                     </div>
-                                    <Link to={ { pathname: '/course', query: { cid: this.state.searchValue} } } className="material-icons">search</Link>
+                                    <Link to={ { pathname: '/course', query: { cid: this.state.searchValue} } } className="material-icons" style={iconstyle}>search</Link>
                                 </div>
                             </div>
                             <div>
