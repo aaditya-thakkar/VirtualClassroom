@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import history from '../../history.js';
 const axios = require('axios');
 
@@ -116,9 +117,9 @@ export default class AddCourseForm extends React.Component {
                             </div>
                         </div>
                     </center>
-
-                    <div className="section"></div>
-                    <div className="section"></div>
+                    <center>
+                        <Link to='/dashboard'>Go to Dashboard</Link>
+                    </center>
                 </main>
             </div>
         );
