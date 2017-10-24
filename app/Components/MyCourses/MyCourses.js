@@ -50,6 +50,8 @@ export default class Courses extends React.Component {
     render() {
         return (
             <div className="body">
+                <center><h4>My Courses</h4></center>
+                <div className='divider' />
                 <div className="row card-align">
                     {this.renderCourseList(this.state.courses)}
                 </div>

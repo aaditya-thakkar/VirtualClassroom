@@ -24,14 +24,11 @@ export default class AddCourseForm extends React.Component {
     render() {
         return (
             <div className="body">
+                <center><h4>Add a new Course</h4></center>
+                <div className='divider' />
                 <div className="section"></div>
                 <main>
                     <center>
-                        <div className="section"></div>
-
-                        <h5>Add a Course</h5>
-                        <div className="section"></div>
-
                         <div className="container col s12">
                             <div className="z-depth-1 grey lighten-4 row" style={{display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE"}}>
 
