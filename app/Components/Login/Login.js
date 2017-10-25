@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AlertContainer from 'react-alert'
 import validateCredentials from './Loginvalidation';
 import history from '../../history.js';
 
@@ -10,9 +11,26 @@ export default class Login extends React.Component {
             email: '',
             password: '',
         };
+        this.alertOptions = {
+            offset: 14,
+            position: 'top right',
+            theme: 'dark',
+            time: 5000,
+            transition: 'scale'
+        }
         this.onEmailChange = this.onEmailChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.showAlert = this.showAlert.bind(this);
+    }
+
+    
+
+    showAlert () {
+        this.msg.error('Username or Password is invalid', {
+            time: 4000,
+            type: 'error'
+        })
     }
 
     render() {
@@ -31,6 +49,9 @@ export default class Login extends React.Component {
                             <div className="z-depth-1 grey lighten-4 row" style={{ display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE" }}>
                                 <div className='row'>
                                     <div className='col s12'>
+                                        <div>
+                                            <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+                                        </div>
                                     </div>
                                 </div>
 
@@ -107,6 +128,7 @@ export default class Login extends React.Component {
 
             } else {
                 console.log("user is not validated");
+                this.showAlert();
                 history.push('/login');
             }
         }, () => {
