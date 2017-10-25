@@ -134,8 +134,7 @@ export default class Login extends React.Component {
         }, () => {
             this.setState({
                 email: '',
-                password: '',
-                alert: false
+                password: ''
             })
         });
 
