@@ -78,6 +78,30 @@ export default class Navigation extends React.Component {
             alert: null
         });
     }
+    componentDidMount() {
+        const steps = [
+            {
+                title: 'Serach for Courses',
+                text: 'You can enter keywords and search for courses you like.',
+                selector: '.nav-fixed .nav-wrapper .row',
+                position: 'bottom',
+                type: 'hover',
+                style: {
+                    backgroundColor: '#f07b50',
+                    borderRadius: 0,
+                    color: '#fff',
+                    mainColor: '#fff',
+                    textAlign: 'center',
+                    beacon: {
+                        inner: '#f07b50',
+                        outer: '#f07b50',
+                    },
+                },
+            },
+        ];
+
+        this.props.addSteps(steps);
+    }
 
     render() {
         console.log('local', localStorage.getItem('AUTH_USER'));

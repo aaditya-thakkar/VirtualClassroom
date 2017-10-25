@@ -16,6 +16,30 @@ export default class Courses extends React.Component {
                 courses: courses
             });
         });
+
+        const steps = [
+            {
+                title: 'Popular Courses',
+                text: 'You can click on the course to see the course and instructor details. You can enroll the course you like.',
+                textAlign: 'center',
+                selector: '.row.card-align',
+                position: 'top',
+                style: {
+                    backgroundColor: '#12d217',
+                    borderRadius: 0,
+                    color: '#fff',
+                    mainColor: '#fff',
+                    textAlign: 'center',
+                    beacon: {
+                        inner: '#12d217',
+                        outer: '#12d217',
+                    },
+                },
+            },
+
+        ];
+
+        this.props.addSteps(steps);
     }
 
     renderCourseList(array) {
