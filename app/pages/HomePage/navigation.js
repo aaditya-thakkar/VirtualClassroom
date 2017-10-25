@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import SweetAlert from 'react-bootstrap-sweetalert';
+import history from '../../history.js';
 
 const logoStyle = {
     height: 50,
@@ -21,19 +22,19 @@ const navButtons = () => (<div className="col s5">
     </ul>
 </div>);
 
-const navButtonsWithAuth = (username, handleLogout) => (<div className="col s5">
+const navButtonsWithAuth = (username, logoutconfirmationAlert) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
         <li className="text-name">Hi, {username}</li>
-        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+        <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
     </ul>
 </div>);
 
-const navButtonsTutor = (username, handleLogout) => (<div className="col s5">
+const navButtonsTutor = (username, logoutconfirmationAlert) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li className="text-name">Hi, {username}</li>
-        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+        <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
     </ul>
 </div>);
 
@@ -141,12 +142,13 @@ export default class Navigation extends React.Component {
     }
 
     handleLogout() {
-        localStorage.removeItem('AUTH_USER');
-        localStorage.getItem('IS_TUTOR') && localStorage.removeItem('IS_TUTOR');
         this.setState({
             navLinks: navButtons(),
             alert:null
         })
+        localStorage.removeItem('AUTH_USER');
+        localStorage.getItem('IS_TUTOR') && localStorage.removeItem('IS_TUTOR');
+        history.push('/');
     }
 
     handleSearchValue(cid) {
