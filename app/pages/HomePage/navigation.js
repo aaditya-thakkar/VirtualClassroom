@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import SweetAlert from 'react-bootstrap-sweetalert';
+import history from '../../history.js';
 
 const logoStyle = {
     height: 50,
@@ -20,19 +22,19 @@ const navButtons = () => (<div className="col s5">
     </ul>
 </div>);
 
-const navButtonsWithAuth = (username, handleLogout) => (<div className="col s5">
+const navButtonsWithAuth = (username, logoutconfirmationAlert) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
         <li className="text-name">Hi, {username}</li>
-        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+        <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
     </ul>
 </div>);
 
-const navButtonsTutor = (username, handleLogout) => (<div className="col s5">
+const navButtonsTutor = (username, logoutconfirmationAlert) => (<div className="col s5">
     <ul className="right hide-on-med-and-down">
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li className="text-name">Hi, {username}</li>
-        <li><Link to='/' onClick={handleLogout}>Logout</Link></li>
+        <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
     </ul>
 </div>);
 
@@ -40,13 +42,43 @@ export default class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchValue: ''
+            searchValue: '',
+            alert: null
         };
         this.handleLogout = this.handleLogout.bind(this);
+        this.logoutconfirmationAlert = this.logoutconfirmationAlert.bind(this);
+        this.hideAlert = this.hideAlert.bind(this);
         this.handleSearchValue = this.handleSearchValue.bind(this);
         this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
     }
 
+    logoutconfirmationAlert() {
+        const getAlert = () => (
+            <SweetAlert
+                warning
+                showCancel
+                confirmBtnText="Confirm"
+                confirmBtnBsStyle="danger"
+                cancelBtnBsStyle="default"
+                title="Logout"
+                onConfirm={this.handleLogout}
+                onCancel={this.hideAlert}
+            >
+                Are you sure you want to logout?
+            </SweetAlert>
+        );
+
+        this.setState({
+            alert: getAlert()
+        });
+    }
+
+    hideAlert() {
+        console.log('Hiding alert...');
+        this.setState({
+            alert: null
+        });
+    }
     componentDidMount() {
         const steps = [
             {
@@ -74,7 +106,7 @@ export default class Navigation extends React.Component {
 
     render() {
         console.log('local', localStorage.getItem('AUTH_USER'));
-        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : localStorage.getItem('IS_TUTOR') ? navButtonsTutor(localStorage.getItem('AUTH_USER'), this.handleLogout) : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.handleLogout);
+        this.navLinks = !localStorage.getItem('AUTH_USER') ? navButtons() : localStorage.getItem('IS_TUTOR') ? navButtonsTutor(localStorage.getItem('AUTH_USER'), this.logoutconfirmationAlert) : navButtonsWithAuth(localStorage.getItem('AUTH_USER'), this.logoutconfirmationAlert);
         return (
             <div className="nav-fixed">
                 <nav>
@@ -95,11 +127,12 @@ export default class Navigation extends React.Component {
                                     <div className="col s10">
                                         <SearchBar handleSearchValue={this.handleSearchValue} />
                                     </div>
-                                    <Link to={ { pathname: '/course', query: { cid: this.state.searchValue} } } className="material-icons" style={iconstyle}>search</Link>
+                                    <Link to={{ pathname: '/course', query: { cid: this.state.searchValue } }} className="material-icons" style={iconstyle}>search</Link>
                                 </div>
                             </div>
                             <div>
                                 {this.navLinks}
+                                {this.state.alert}
                             </div>
                         </div>
                     </div>
@@ -109,11 +142,13 @@ export default class Navigation extends React.Component {
     }
 
     handleLogout() {
+        this.setState({
+            navLinks: navButtons(),
+            alert:null
+        })
         localStorage.removeItem('AUTH_USER');
         localStorage.getItem('IS_TUTOR') && localStorage.removeItem('IS_TUTOR');
-        this.setState({
-            navLinks: navButtons()
-        })
+        history.push('/');
     }
 
     handleSearchValue(cid) {
