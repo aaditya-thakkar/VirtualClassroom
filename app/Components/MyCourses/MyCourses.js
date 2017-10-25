@@ -17,6 +17,46 @@ export default class Courses extends React.Component {
                 courses: courses
             });
         });
+
+        const steps = [
+            {
+                title: 'Your Courses',
+                text: 'This section shows all the courses taken by you, you can click on the course and add lectures or start a live classroom.',
+                selector: '.body .row.card-align',
+                position: 'top',
+                type: 'hover',
+                style: {
+                    backgroundColor: '#f07b50',
+                    borderRadius: 0,
+                    color: '#fff',
+                    mainColor: '#fff',
+                    textAlign: 'center',
+                    beacon: {
+                        inner: '#f07b50',
+                        outer: '#f07b50',
+                    },
+                },
+            },
+            {
+                title: 'Edit Courses',
+                text: 'You can add or delete courses from here.',
+                selector: '.body .fixed-action-btn',
+                position: 'left',
+                style: {
+                    backgroundColor: '#12d217',
+                    borderRadius: 0,
+                    color: '#fff',
+                    mainColor: '#fff',
+                    textAlign: 'center',
+                    beacon: {
+                        inner: '#12d217',
+                        outer: '#12d217',
+                    },
+                },
+            },
+        ];
+
+        this.props.addSteps(steps);
     }
 
     renderCourseList(array) {
@@ -56,15 +96,15 @@ export default class Courses extends React.Component {
                     {this.renderCourseList(this.state.courses)}
                 </div>
 
-                    <div className="fixed-action-btn">
-                        <a className="btn-floating btn-large indigo">
-                            <i className="large material-icons">mode_edit</i>
-                        </a>
-                        <ul>
-                            <li><Link to="/dashboard/addCourseForm" className="btn-floating red"><i className="large material-icons">add</i></Link></li>
-                            <li><Link to="/dashboard/addCourseForm" className="btn-floating yellow darken-1"><i className="large material-icons">delete</i></Link></li>
-                        </ul>
-                    </div>
+                <div className="fixed-action-btn">
+                    <a className="btn-floating btn-large indigo">
+                        <i className="large material-icons">mode_edit</i>
+                    </a>
+                    <ul>
+                        <li><Link to="/dashboard/addCourseForm" className="btn-floating red"><i className="large material-icons">add</i></Link></li>
+                        <li><Link to="/dashboard/addCourseForm" className="btn-floating yellow darken-1"><i className="large material-icons">delete</i></Link></li>
+                    </ul>
+                </div>
 
             </div>
         );

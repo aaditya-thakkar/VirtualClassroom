@@ -8,7 +8,7 @@ export default class DashboardItems extends React.Component {
         return (
             <main>
                 <Switch>
-                    <Route exact path='/dashboard' component={MyCourses} />
+                    <Route exact path='/dashboard' render={(props) => ( <MyCourses addSteps={this.props.addSteps}/> )} />
                     <Route exact path='/dashboard/addCourseForm' component={AddCourseForm} />
                 </Switch>
             </main>
