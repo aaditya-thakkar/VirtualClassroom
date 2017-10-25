@@ -14,7 +14,7 @@ export default class Main extends React.Component {
         return (
             <main>
                 <Switch>
-                    <Route exact path='/' component={HomePage} />
+                    <Route exact path='/' render={(props) => ( <HomePage addSteps={this.props.addSteps}/> )} />
                     <Route path='/login' component={Login} />
                     <Route path='/signup' component={Signup} />
                     <Route path='/about' component={About} />

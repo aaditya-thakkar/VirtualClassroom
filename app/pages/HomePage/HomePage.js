@@ -8,13 +8,13 @@ export default class HomePage extends React.Component {
         return (
             <div>
                 <div>
-                    <Introduction />
+                    <Introduction addSteps={this.props.addSteps} />
                 </div>
                 <br /><br />
                 <center><h4>Our Offerings</h4></center>
                 <div className='divider' />
                 <div>
-                    <Courses />
+                    <Courses addSteps={this.props.addSteps} />
                 </div>
             </div>
         );
