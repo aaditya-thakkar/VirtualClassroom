@@ -45,8 +45,9 @@ export default class Courses extends React.Component {
     renderCourseList(array) {
         if (Array.isArray(array)) {
             return array.map((item, i) => {
+                console.log("render list", item.tutorId);
                 return (<div key={i} className="col s3" style={{ paddingLeft: "25px", paddingTop: "20px" }}>
-                    <Card course={{ name: item.name, image: item.image, cid: item.cid }} />
+                    <Card course={{ name: item.name, image: item.image, cid: item.cid, tutorId: item.tutorId }} />
                 </div>
                 )
             })
