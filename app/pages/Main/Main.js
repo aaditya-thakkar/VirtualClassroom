@@ -22,6 +22,7 @@ export default class Main extends React.Component {
                     <Route path='/coursevideo' component={CourseVideos} />
                     <Route path='/tutorform' component={Tutorform} />
                     <Route path='/dashboard' component={Dashboard} />
+                    <Route path='/courseTutorView' component={Tutorform} />
                 </Switch>
             </main>
         )
