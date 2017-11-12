@@ -15,7 +15,7 @@ const iconstyle = {
 };
 
 const navButtons = () => (<div className="col s5">
-    <ul className="right hide-on-med-and-down">
+    <ul className="right hide-on-med-and-down noMarginTop">
         <li ><Link to='/about'>About</Link></li>
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/signup'>SignUp</Link></li>
@@ -23,7 +23,7 @@ const navButtons = () => (<div className="col s5">
 </div>);
 
 const navButtonsWithAuth = (username, logoutconfirmationAlert) => (<div className="col s5">
-    <ul className="right hide-on-med-and-down">
+    <ul className="right hide-on-med-and-down noMarginTop">
         <li><Link to='/tutorform'><small>Become a tutor</small> </Link></li>
         <li className="text-name">Hi, {username}</li>
         <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
@@ -31,7 +31,7 @@ const navButtonsWithAuth = (username, logoutconfirmationAlert) => (<div classNam
 </div>);
 
 const navButtonsTutor = (username, logoutconfirmationAlert) => (<div className="col s5">
-    <ul className="right hide-on-med-and-down">
+    <ul className="right hide-on-med-and-down noMarginTop">
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li className="text-name">Hi, {username}</li>
         <li><a onClick={logoutconfirmationAlert}>Logout</a></li>
