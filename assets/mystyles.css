@@ -69,6 +69,11 @@ input[type=email]:focus:not([readonly])  {
     margin-left: 75px !important;
 }
 
+.nav {
+    margin-top: 100px;
+}
+
+
 .jumbotron {
     background: #eee;
     border-radius: 2px;
